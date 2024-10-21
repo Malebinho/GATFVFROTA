@@ -5,7 +5,9 @@ from django.shortcuts import render
 def cadastro_func(request):
     return render(request, 'cadastro_func.html')
 
-
 def login(request):
     return render(request, 'login.html')
+
+def home(request):
+    return render(request, 'index.html')
 
