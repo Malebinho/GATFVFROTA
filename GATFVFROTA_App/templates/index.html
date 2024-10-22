@@ -24,7 +24,10 @@
         <header class="header">
             <div class="page-brand">
                 <a class="link" href="index.html">
-                    <img class="link" href="index.html" src="{% static 'img/logo.png' %}" style="width: 150px;" alt="User Image">
+                    <span class="brand">GESTÃO DE FROTAS
+                       
+                    </span>
+                    <span class="brand-mini">GF</span>
                 </a>
             </div>
             <div class="flexbox flex-1">
@@ -158,15 +161,19 @@
                         </ul>
                     </li>
                     <li class="dropdown dropdown-user">
-                        <a class="nav-link dropdown-toggle link" data-toggle="dropdown">
+                        {% if user.is_authenticated %}
+                        <a class="nav-link dropdown-toggle link"  style="text-transform: uppercase" data-toggle="dropdown">
                             <img src="./assets/img/admin-avatar.png" />
-                            <span></span>Admin<i class="fa fa-angle-down m-l-5"></i></a>
+                            <span></span>{{ user.get_username }}<i class="fa fa-angle-down m-l-5"></i>
+                        </a>
+                        {% endif %}
                         <ul class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" href="profile.html"><i class="fa fa-user"></i>Profile</a>
-                            <a class="dropdown-item" href="profile.html"><i class="fa fa-cog"></i>Settings</a>
-                            <a class="dropdown-item" href="javascript:;"><i class="fa fa-support"></i>Support</a>
                             <li class="dropdown-divider"></li>
-                            <a class="dropdown-item" href="login.html"><i class="fa fa-power-off"></i>Logout</a>
+                            {% if user.is_authenticated %}
+                            <a class="dropdown-item" href="/accounts/logout/"><i class="fa fa-power-off"></i>
+                            Logout</a>
+                            {% endif %}
                         </ul>
                     </li>
                 </ul>
@@ -181,9 +188,14 @@
                     <div>
                         <img src="./assets/img/admin-avatar.png" width="45px" />
                     </div>
+                    {% if user.is_authenticated %}
                     <div class="admin-info">
-                        <div class="font-strong">James Brown</div><small>Administrator</small></div>
+                        <div class="font-strong" style="text-transform: uppercase">{{ user.get_username }}</div><small>Administrator</small>
+                    </div>
+                    {% endif %}
                 </div>
+
+
                 <ul class="side-menu metismenu">
                     <li>
                         <a class="active" href="index.html"><i class="sidebar-item-icon fa fa-th-large"></i>
