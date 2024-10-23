@@ -83,10 +83,10 @@ WSGI_APPLICATION = 'GATFVFROTA_proj.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'your_database_name',
-        'USER': 'your_username',
-        'PASSWORD': 'your_password',
-        'HOST': 'localhost',  # or your database host
+        'NAME': 'gatfv_frota',
+        'USER': 'gatfv_frota_user',
+        'PASSWORD': 'hANwv5eiGIsYpinspCcZ9ohpTcP08oaS',
+        'HOST': 'dpg-cs8520e8ii6s73c4d63g-a',  # or your database host
         'PORT': '5432',       # default PostgreSQL port
     }
 }
